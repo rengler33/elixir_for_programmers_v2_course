@@ -13,8 +13,14 @@ defmodule HangmanImplGameTest do
 
   test "new game returns correct word" do
     game = Game.new_game("wombat")
-    assert game.turns_left == 7
-    assert game.game_state == :initializing
     assert game.letters == ["w", "o", "m", "b", "a", "t"]
+  end
+
+  test "new game returns lower case word" do
+    game = Game.new_game()
+
+    assert game.letters
+           |> List.to_string()
+           |> String.match?(~r/[[:lower:]]+$/)
   end
 end
