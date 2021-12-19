@@ -68,7 +68,7 @@ defmodule Hangman.Impl.Game do
   defp maybe_won(_), do: :good_guess
 
   @spec tally(t) :: Type.tally()
-  defp tally(game) do
+  def tally(game) do
     %{
       turns_left: game.turns_left,
       game_state: game.game_state,
